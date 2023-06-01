@@ -1,0 +1,10 @@
+class Item < ApplicationRecord
+  belongs_to :user
+  validates :reward, numericality: true, allow_blank: true
+  validates :status, inclusion: { in: [0, 1, 2, 3, 100] }, presence: true
+  attribute :source, :integer, default: 0
+  validates :name, presence: true
+  validates :description, presence: true, length: { maximum: 50 }
+  validates :date, presence: true
+#  user:references name:string status:integer category:integer date:date location:string reward:float source:integer description:text
+end
