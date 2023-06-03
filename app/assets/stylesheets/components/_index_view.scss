@@ -1,0 +1,31 @@
+
+.index-view-card {
+  padding-top: 10px;
+  background-color: #ffffff;
+  border: 1px solid #eaeaea5d;
+  border-radius: 10px;
+  padding: 10px;
+
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: justify;
+
+  @media (min-width: 600px) {
+    &.col-md-6 {
+      width: 75%;
+    }
+    &.col-md-4 {
+    width: 33%;
+  }
+  }
+
+}
+
+.index-view-card :hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
