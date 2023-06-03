@@ -1,7 +1,10 @@
-<%@items.each do |item|%>
-<p></p>
-<%=item.name%>
-<%=item.description%>
-<%=item.date%>
-<p></p>
-<%end%>
+
+<ul>
+  <% @items.each do |item| %>
+  <li>
+    <%=item.name%>
+    <%=item.description%></li>
+    <%=item.date%>
+  </li>
+  <% end %>
+</ul>
