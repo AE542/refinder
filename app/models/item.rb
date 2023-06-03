@@ -6,5 +6,4 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 150 }
   validates :date, presence: true
-#  user:references name:string status:integer category:integer date:date location:string reward:float source:integer description:text
 end
