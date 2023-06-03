@@ -7,10 +7,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.status = 0
     if @item.save
       redirect_to items_path, notice: 'Item Report Submitted'
     else
-      render :new
+      # render :new
     end
   end
 
@@ -49,5 +50,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:user_id, :name, :status, :date, :reward, :location, :description)
   end
-
 end
