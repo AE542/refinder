@@ -1,12 +1,15 @@
 <html>
 
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
       <div class= 'index-view-card'>
-            <ul>
+            <ul class= 'list-item'>
               <% @items.each do |item| %>
-              <li>
+              <li class= 'list-item' >
                 <%=item.name%>
                 <%=item.description%>
                 <%=item.date%>
