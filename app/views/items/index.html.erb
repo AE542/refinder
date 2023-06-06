@@ -7,12 +7,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
       <div class= 'index-view-card'>
-            <ul class= 'list-item'>
+            <ul class="index-ul"class= 'list-item'>
               <% @items.each do |item| %>
-              <li class= 'list-item' >
+              <li class="index-li"class= 'list-item' >
                 <%=item.name%>
                 <%=item.description%>
                 <%=item.date%>
+                <%=item.location%>
               </li>
               <% end %>
             </ul>

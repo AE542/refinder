@@ -1,0 +1,19 @@
+<div class="container ">
+  <%# <div class="row justify-content-center"> %>
+  <div class="card" style="width:100%;">
+    <%=image_tag("stock-image-laptop-1.jpg", style: 'height:220px;width:auto;') %>
+    <div class="card-body">
+      <h5 class="card-title"><%=@item.name.capitalize%></h5>
+      <p class="card-text"><%=@item.description%></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%=@item.date%></li>
+      <li class="list-group-item"><%=@item.location%></li>
+    </ul>
+    <div class="card-body" class="container">
+      <%= link_to "Back to list", items_path, class: "btn btn-outline-success link-styling"%>
+      <button type="button" class="btn btn-success">Share</button>
+    </div>
+  </div>
+  </div>
+</div>
