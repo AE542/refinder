@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 ">
+        <%= form_for @item do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+
+          <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+
+
+          <div class="field">
+            <%= f.label :date %>
+            <%= f.date_field :date %>
+          </div>
+
+          <div class="field">
+            <%= f.label :reward %>
+            <%= f.text_field :reward %>
+          </div>
+
+          <div class="field">
+            <%= f.label :location %>
+            <%= f.text_field :location %>
+          </div>
+
+          <div class="field">
+            <%= f.label :description %>
+            <%= f.text_area :description %>
+          </div>
+
+          <%= f.submit "Submit" %>
+        <% end %>
+      </div>
+    </div>
+</div>
