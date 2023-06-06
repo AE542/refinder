@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to items_path, notice: 'Item Report Submitted'
     else
+      # puts @item.errors.full_messages # Add this line to print the validation errors to the console
       render :new
     end
   end
