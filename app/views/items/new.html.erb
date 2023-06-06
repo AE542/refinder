@@ -1,37 +1,74 @@
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 ">
-        <%= form_for @item do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-
-          <div class="field">
-            <%= f.label :name %>
-            <%= f.text_field :name %>
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card mt-3 shadow">
+      <div class="card-body">
+        <h2 class="card-title">Report Item</h2>
+        <%= simple_form_for @item, html: { multipart: true } do |f| %>
+          <div class="form-group">
+            <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
           </div>
-
-
-          <div class="field">
-            <%= f.label :date %>
-            <%= f.date_field :date %>
+          <div class="form-group">
+            <% [['Lost', 0], ['Found', 1]].each do |option| %>
+              <div class="form-check form-check-inline">
+                <%= f.radio_button :status, option[1], class: 'form-check-input mr-2 mb-4', onchange: 'toggleRewardField()' %>
+                <%= label_tag "#{f.object_name}_status_#{option[1]}", option[0], class: 'form-check-label' %>
+              </div>
+            <% end %>
           </div>
-
-          <div class="field">
-            <%= f.label :reward %>
-            <%= f.text_field :reward %>
+          <div class="form-group mb-2">
+            <%= f.input :name, label: "Item Name" %>
           </div>
-
-          <div class="field">
-            <%= f.label :location %>
-            <%= f.text_field :location %>
+          <div class="form-group" id="image-field" style="display: none;">
+            <%= f.input :image, as: :file %>
           </div>
-
-          <div class="field">
-            <%= f.label :description %>
-            <%= f.text_area :description %>
+          <div class="form-group mt-3">
+            <%= f.label :date, "Date" %>
+            <%= f.date_field :date, class: "form-control", max: Date.current.to_s %>
           </div>
-
-          <%= f.submit "Submit" %>
+          <div class="form-group">
+            <%= f.input :location, label: "Location" %>
+          </div>
+          <div class="form-group" id="reward-field" style="display: none;">
+            <%= f.input :reward, input_html: { step: '0.01', min: '0', type: 'number' } %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :description, "Description" %>
+            <%= text_area_tag :description, nil, rows: 3, class: "form-control" %>
+          </div>
+          <div class="text-center">
+            <%= f.button :submit, "Submit", class: "btn btn-primary mt-3" %>
+          </div>
         <% end %>
       </div>
     </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+function toggleRewardField() {
+  var rewardField = document.getElementById("reward-field");
+  var imageField = document.getElementById("image-field");
+  var selectedElement = document.querySelector('input[name="item[status]"]:checked');
+  if (selectedElement && selectedElement.value === "0") {
+    rewardField.style.display = "block";
+    imageField.style.display = "block";
+  } else {
+    rewardField.style.display = "none";
+    imageField.style.display = "none";
+  }
+}
+// Attach event listener to the radio buttons
+document.addEventListener("DOMContentLoaded", function () {
+  var statusElements = document.getElementsByName("item[status]");
+  for (var i = 0; i < statusElements.length; i++) {
+    statusElements[i].addEventListener("change", toggleRewardField);
+  }
+  // Check if no radio button is initially selected
+  var checked = Array.from(statusElements).some(function (element) {
+    return element.checked;
+  });
+  if (!checked) {
+    toggleRewardField();
+  }
+});
+</script>
