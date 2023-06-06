@@ -1,22 +1,101 @@
-<html>
-
-<head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-      <div class= 'index-view-card'>
-            <ul class="index-ul"class= 'list-item'>
-              <% @items.each do |item| %>
-              <li class="index-li"class= 'list-item' >
-                <%=item.name%>
-                <%=item.description%>
-                <%=item.date%>
-                <%=item.location%>
-              </li>
-              <% end %>
-            </ul>
+  <%# code for lost & found item reporting button  %>
+  <div class="row mx-1 mt-5 mb-3  flex-column align-items-center ">
+    <div class="card-header-top-menu d-flex justify-content-between align-items-center col-md-3 ">
+      <div class="col-xs-3">
+        <div class="text-center mx-3">
+          <%= link_to "Report Item", new_item_path, class: "btn btn-info " %>
+        </div>
       </div>
+      <div class="col-md-2">
+        <div class="text-center">
+          <%= link_to "#", class: "list-view-link mx-2", "data-action": "click->map#showListView" do %>
+            <i class="fa-sharp fa-solid fa-list-ul" style="color: #3272e2;"></i>
+          <% end %>
+          <%= link_to "#", class: "map-location-link", "data-action": "click->map#showMapLocation" do %>
+            <i class="fa-solid fa-map" style="color: #3272e2;"></i>
+          <% end %>
 
-</html>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%# code for mapbox map  %>
+  <div class="row mb-5 flex-column align-items-center mapContainer" >
+    <div style="width: 30; height: 600px;" class="col-md-3"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
+
+
+
+
+  <%# code for index feed view  %>
+  <div class="row mb-5 flex-column align-items-center listContainer">
+    <% @items.each do |item| %>
+      <% if item.status == 0 %>
+          <div class="card index-card-bordered col-md-3 mb-3 px-0">
+            <!-- Display lost item -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="card-title card-title-bold text-lost-colour mb-0">Lost <%= item.name %></h5>
+              <div class="card-icons">
+                <a href="#" class="share-icon"><i class="fa-solid fa-share-nodes mx-1"></i></a>
+                <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2"></i></a>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
+                  <p><strong>Location:</strong> <%= item.location %></p>
+                  <% if item.reward.present? %>
+                    <p><strong>Reward:</strong> $<%= item.reward %></p>
+                  <% end %>
+                  <%= link_to "Info", item_path(item) %>
+                  <i class="fa-solid fa-circle-info" style="color: #175cd3;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      <% elsif item.status == 1 %>
+        <% if item.blur == true %>
+          <div class="card index-card-bordered col-md-3 mb-3 px-0">
+            <!-- Display blurred found item -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="card-title card-title-bold text-found-colour">Found <%= item.name %></h5>
+              <div class="card-icons">
+                <a href="#" class="share-icon"><i class="fa-solid fa-share-nodes mx-1"></i></a>
+                <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2 "></i></a>
+              </div>
+            </div>
+            <p class="card-text mx-3"> Hidden to prevent fraud. Report lost item to view potential matches in "My Items" .</p>
+            <div class="card-body">
+             <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
+             <p class="blurred-text"><strong>Location:</strong> <%= item.location %></p>
+             </div>
+          </div>
+        <% else %>
+          <div class="card index-card-bordered col--3 mb-3 px-0">
+            <!-- Display found item -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="card-title text-success">Found <%= item.name %></h5>
+              <div class="card-icons">
+                <a href="#" class="share-icon"><i class="fas fa-share mx-1"></i></a>
+                <a href="#" class="message-icon"><i class="fas fa-envelope mx-2"></i></a>
+              </div>
+            </div>
+            <div class="card-body">
+              <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
+              <p><strong>Location:</strong> <%= item.location %></p>
+             </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+<%# </div> %>
