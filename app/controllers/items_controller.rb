@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to items_path, notice: 'Item Report Submitted'
     else
-      # render :new
+      render :new
     end
   end
 

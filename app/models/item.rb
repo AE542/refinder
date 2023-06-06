@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
   validates :reward, numericality: true, allow_blank: true
   validates :status, inclusion: { in: [0, 1, 2, 3, 100] }, presence: true
   attribute :source, :integer, default: 0
