@@ -5,6 +5,9 @@
     <div class="card-body">
       <h5 class="card-title"><%=@item.name.capitalize%></h5>
       <p class="card-text"><%=@item.description%></p>
+       <% if @item.image.present? %>
+         <p><%= @item.image %></p>
+       <% end %>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><%=@item.date%></li>
