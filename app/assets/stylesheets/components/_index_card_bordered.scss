@@ -1,0 +1,31 @@
+.index-card-bordered {
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #e9edf0;
+
+}
+
+
+.card-title-bold {
+  font-weight: bold;
+}
+
+
+.text-found-colour {
+  color: rgb(11, 182, 11)
+}
+
+.text-lost-colour {
+  color: rgb(223, 22, 0)
+}
+
+
+.card-header {
+ box-sizing: border-box;
+ background-color: #ffffff;
+}
+
+
+.card-header-top-menu {
+  box-sizing: border-box;
+  background-color: $light-gray;
+ }

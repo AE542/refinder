@@ -1,0 +1,30 @@
+<h1>My Listed Items</h1>
+
+<div class="row">
+  <% @items.each do |item| %>
+    <div class="col-md-4">
+      <div class="card mt-3 shadow">
+        <div class="card-body">
+          <% if item.status == 0 %>
+            <h2 class="card-title text-danger">Lost <%= item.name %></h2>
+            <p class="card-text"><strong>Date:</strong> <%= item.date %></p>
+            <p class="card-text"><strong>Location:</strong> <%= item.location %></p>
+            <p class="card-text"><strong>Reward:</strong> <%= item.reward %></p>
+            <p class="card-text"><strong>Description:</strong> <%= item.description %></p>
+            <%= link_to "Show Matches ", item_path(item), class: "btn btn-primary" %>
+            <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
+
+           <% elsif item.status == 1 %>
+            <h2 class="card-title text-success">Found <%= item.name %></h2>
+            <p class="card-text"><strong>Date:</strong> <%= item.date %></p>
+            <p class="card-text"><strong>Location:</strong> <%= item.location %></p>
+            <p class="card-text"><strong>Description:</strong> <%= item.description %></p>
+            <%= link_to "Show Matches", item_path(item), class: "btn btn-primary" %>
+            <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
+
+            <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

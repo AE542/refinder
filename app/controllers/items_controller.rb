@@ -23,6 +23,10 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def my_items
+    @items = Item.where(user: current_user)
+  end
+
   # add remaining methods below
 
   def edit

@@ -57,6 +57,11 @@
                   <%= link_to "Info", item_path(item) %>
                   <i class="fa-solid fa-circle-info" style="color: #175cd3;"></i>
                 </div>
+                 <div class="col-md-6 text-end">
+                  <% if item.image.attached? %>
+                    <%= image_tag item.image, class: "card-image img-fluid" %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -84,8 +89,8 @@
             <div class="card-header d-flex justify-content-between align-items-center">
               <h5 class="card-title text-success">Found <%= item.name %></h5>
               <div class="card-icons">
-                <a href="#" class="share-icon"><i class="fas fa-share mx-1"></i></a>
-                <a href="#" class="message-icon"><i class="fas fa-envelope mx-2"></i></a>
+                <a href="#" class="share-icon"><i class="fa-solid fa-share-nodes mx-1"></i></a>
+                <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2 "></i></a>
               </div>
             </div>
             <div class="card-body">
