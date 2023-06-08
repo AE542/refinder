@@ -6,6 +6,12 @@ class ItemsController < ApplicationController
       sql_subquery = "name ILIKE :query OR location ILIKE :query"
       @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
     end
+    @markers = @items.geocoded.map do |item|
+      {
+        lat: item.latitude,
+        lng: item.longitude
+      }
+    end
   end
 
   def new
