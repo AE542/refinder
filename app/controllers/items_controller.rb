@@ -1,56 +1,64 @@
 class ItemsController < ApplicationController
-
-  # add before action
+  before_action :set_item, only: %i[show edit update destroy]
   def index
-    @items = Item.all
-  end
-
-  def create
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to items_path, notice: 'Item Report Submitted'
-    else
-      # puts @item.errors.full_messages # Add this line to print the validation errors to the console
-      render :new
-    end
+    @items = policy_scope(Item).all
   end
 
   def new
     @item = Item.new
+    authorize @item
+  end
+
+  def create
+    @item = Item.new(item_params)
+    @item.user = current_user
+    authorize @item
+
+    if @item.save
+      redirect_to root_path, notice: 'Item was successfully created.'
+    else
+      render :new
+    end
   end
 
   def show
-    @item = Item.find(params[:id])
+    authorize @item
   end
-
-  def my_items
-    @items = Item.where(user: current_user)
-  end
-
-  # add remaining methods below
 
   def edit
-    @item = Item.find(params[:id])
+    authorize @item
   end
 
   def update
-    @item = Item.find(params[:id])
+    authorize @item
     if @item.update(item_params)
-      redirect_to items_path, notice: "Item succcesfully updated"
+      redirect_to my_items_path, notice: "Item was successfully updated."
     else
       render :edit
     end
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    authorize @item
     @item.destroy
-    redirect_to items_path, status: :see_other
+    redirect_to items_path, notice: 'Item deleted successfully.'
+  end
+
+  def my_items
+    @items = policy_scope(Item).where(user: current_user)
   end
 
   private
 
-  def item_params
-    params.require(:item).permit(:user_id, :name, :status, :date, :reward, :location, :description, :image)
+
+  def set_item
+    @item = Item.find(params[:id])
   end
+
+  def item_params
+    params.require(:item).permit(:user_id, :status, :name, :date, :location, :reward, :description, :image)
+  end
+
+
+
 end
