@@ -1,23 +1,50 @@
-<div class="container ">
-  <%# <div class="row justify-content-center"> %>
-  <div class="card" style="width:100%;">
-    <%=image_tag("stock-image-laptop-1.jpg", style: 'height:220px;width:auto;') %>
-    <div class="card-body">
-      <h5 class="card-title"><%=@item.name.capitalize%></h5>
-      <p class="card-text"><%=@item.description%></p>
-       <% if @item.image.present? %>
-         <p><%= @item.image %></p>
-       <% end %>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%=@item.date%></li>
-      <li class="list-group-item"><%=@item.location%></li>
-    </ul>
-    <div class="card-body" class="container">
-      <%= link_to "Back to list", items_path, class: "btn btn-outline-success link-styling"%>
-      <button type="button" class="btn btn-success">Share</button>
-       <%= link_to "Edit", edit_item_url, class: "btn btn-outline-success link-styling"%>
-    </div>
+<div class="row mb-5 flex-column align-items-center">
+  <div class="card index-card-bordered col-md-3 mb-3 px-0">
+      <div style="width: 30; height: 600px;" class="showMapContainer"
+      data-controller="map"
+      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
+
+  <div class="card index-card-bordered col-md-3 mb-3 px-0">
+      <!-- Display lost item -->
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title card-title-bold text-lost-colour mb-0">Lost <%= @item.name %></h5>
+        <div class="card-icons">
+          <a href="#" class="share-icon"><i class="fa-solid fa-share-nodes mx-1"></i></a>
+          <% if current_user != @item.user %>
+           <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2"></i></a>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Date:</strong> <%= @item.date.strftime("%B %d, %Y") %></p>
+            <p><strong>Location:</strong> <%= @item.location %></p>
+            <% if @item.reward.present? %>
+              <p><strong>Reward:</strong> $<%= @item.reward %></p>
+            <% end %>
+          </div>
+          <div class="col-md-6 text-end">
+            <% if @item.image.attached? %>
+              <%= image_tag @item.image, class: "card-image img-fluid" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex">
+          <a href="<%= edit_item_path(@item) %>">
+            <i class="fa-solid fa-file-pen mx-3 py-3 " style="color: #326bcd;"></i>
+          </a>
+
+          <%= button_to @item, method: :delete, class: "btn my-1", onclick: "return confirm('Are you sure you want to delete this item?');" do %>
+          <i class="fa-sharp fa-solid fa-trash" style="color: #2d69d2;"></i>
+        <% end %>
+      </div>
   </div>
 </div>
+
+
+<%# only show edit/delete if you are the owner of record %>
