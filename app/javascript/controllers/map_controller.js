@@ -26,10 +26,15 @@ export default class extends Controller {
 
     #addMarkersToMap() {
       this.markersValue.forEach((marker) => {
-        new mapboxgl.Marker()
-          .setLngLat([ marker.lng, marker.lat ])
-          .addTo(this.map)
-      })
+        const popup = new mapboxgl.Popup().setHTML(marker.info_window_html);
+        const customMarker = document.createElement("div");
+        customMarker.innerHTML = marker.marker_html;
+
+        new mapboxgl.Marker(customMarker)
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(this.map);
+      });
     }
 
 
@@ -41,7 +46,7 @@ export default class extends Controller {
 
       this.map.fitBounds(aldgateBounds, {
         padding: 70,
-        maxZoom: 13,
+        maxZoom: 15,
         duration: 0,
       });
     }
