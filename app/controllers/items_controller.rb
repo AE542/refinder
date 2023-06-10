@@ -2,6 +2,10 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i[show edit update destroy]
   def index
     @items = policy_scope(Item).all
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR location ILIKE :query"
+      @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def new
