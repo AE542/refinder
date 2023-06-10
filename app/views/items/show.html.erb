@@ -1,9 +1,10 @@
 <div class="row mb-5 flex-column align-items-center">
   <div class="card index-card-bordered col-md-3 mb-3 px-0">
-      <div style="width: 30; height: 600px;" class="showMapContainer"
-      data-controller="map"
-      data-map-markers-value="<%= @marker.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div style="width: 30; height: 450px;" class="showMapContainer"
+      data-controller="showmap"
+      data-showmap-markers-value="<%= @markers.to_json %>"
+      data-showmap-marker-value="<%= @marker.to_json %>"
+      data-showmap-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
   </div>
 
