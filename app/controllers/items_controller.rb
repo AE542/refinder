@@ -9,7 +9,10 @@ class ItemsController < ApplicationController
     @markers = @items.geocoded.map do |item|
       {
         lat: item.latitude,
-        lng: item.longitude
+        lng: item.longitude,
+        status: item.status,
+        info_window_html: render_to_string(partial: "shared/info_window", locals: { item: }),
+        marker_html: render_to_string(partial: "marker", locals: { item: })
       }
     end
   end
@@ -31,26 +34,31 @@ class ItemsController < ApplicationController
     end
   end
 
+
+
+
   def show
     authorize @item
-    @marker =
-      {
-        lat: @item.latitude,
-        lng: @item.longitude
-      }
+    @marker = {
+      lat: @item.latitude,
+      lng: @item.longitude
+    }
+    # Initialize @potential_matches
     @potential_matches = []
-
+    # Find potential matches within 1 km distance
     @potential_matches = Item.near([@item.latitude, @item.longitude], 3, units: :mi).where(status: 1)
 
     @markers = @potential_matches.geocoded.map do |item|
       {
         lat: item.latitude,
         lng: item.longitude,
-        status: item.status
-        # info_window_html: render_to_string(partial: "shared/info_window", locals: { item: })
+        status: item.status,
+        info_window_html: render_to_string(partial: "shared/info_window", locals: { item: }),
+        marker_html: render_to_string(partial: "marker", locals: { item: })
       }
     end
   end
+
 
   def edit
     authorize @item
@@ -85,7 +93,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:user_id, :status, :name, :date, :location, :reward, :description, :image)
   end
-
-
 
 end
