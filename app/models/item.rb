@@ -7,4 +7,9 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :description, length: { maximum: 150 }
   validates :date, presence: true
+
+  # for Geocoder
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
 end
