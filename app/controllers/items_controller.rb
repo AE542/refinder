@@ -76,7 +76,7 @@ class ItemsController < ApplicationController
   def destroy
     authorize @item
     @item.destroy
-    redirect_to items_path, notice: 'Item deleted successfully.'
+    redirect_to my_items_path, notice: 'Item deleted successfully.'
   end
 
   def my_items
