@@ -46,7 +46,7 @@ export default class extends Controller {
 
       this.map.fitBounds(aldgateBounds, {
         padding: 70,
-        maxZoom: 13,
+        maxZoom: 15,
         duration: 0,
       });
     }
