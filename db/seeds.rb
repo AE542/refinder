@@ -3,7 +3,7 @@ require 'geocoder'
 
 # Array of item names
 item_names = [ "bag", "bracelet", "caps", "cat", "dog", "headphone",
-  "hoodie", "images", "jacket", "keys", "macbook", "ring", "wallet", "watch"]
+  "hoodie", "jacket", "keys", "macbook", "ring", "wallet", "watch"]
 
 # Array of 50 London postcodes
 london_postcodes = [
@@ -20,7 +20,7 @@ lorem_ipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 # Array of image names without extension
 image_names = [
   "bag", "bracelet", "caps", "cat", "dog", "headphone",
-  "hoodie", "images", "jacket", "keys", "macbook", "ring", "wallet", "watch"
+  "hoodie", "jacket", "keys", "macbook", "ring", "wallet", "watch"
 ]
 
 # Geocode an address and return the latitude and longitude
