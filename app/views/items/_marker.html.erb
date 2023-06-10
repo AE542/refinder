@@ -1,0 +1,5 @@
+<% if item[:status] == 0 %>
+  <%= image_tag "lost_item_marker.png", height: 30, width: 30, alt: "Logo" %>
+<% elsif item[:status] == 1 %>
+  <%= image_tag "found_item_marker.png", height: 30, width: 30, alt: "Logo" %>
+<% end %>

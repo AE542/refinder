@@ -20,7 +20,7 @@ export default class extends Controller {
       })
 
       this.#addMarkersToMap()
-      //this.#fitMapToMarkers()
+      this.#setDefaultMapBounds()
 
     }
 
@@ -32,11 +32,18 @@ export default class extends Controller {
       })
     }
 
-    #fitMapToMarkers() {
-      const bounds = new mapboxgl.LngLatBounds()
-      this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-      this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-    }
 
+      // Default to Aldgate London as the map location in case browser geolocation API access is denied
+    #setDefaultMapBounds() {
+      const aldgateBounds = new mapboxgl.LngLatBounds()
+        .extend([-0.07583, 51.51376])
+        .extend([-0.05986, 51.51859]);
+
+      this.map.fitBounds(aldgateBounds, {
+        padding: 70,
+        maxZoom: 13,
+        duration: 0,
+      });
+    }
 
  }
