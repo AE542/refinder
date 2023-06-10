@@ -33,6 +33,23 @@ class ItemsController < ApplicationController
 
   def show
     authorize @item
+    @marker =
+      {
+        lat: @item.latitude,
+        lng: @item.longitude
+      }
+    @potential_matches = []
+
+    @potential_matches = Item.near([@item.latitude, @item.longitude], 3, units: :mi).where(status: 1)
+
+    @markers = @potential_matches.geocoded.map do |item|
+      {
+        lat: item.latitude,
+        lng: item.longitude,
+        status: item.status
+        # info_window_html: render_to_string(partial: "shared/info_window", locals: { item: })
+      }
+    end
   end
 
   def edit

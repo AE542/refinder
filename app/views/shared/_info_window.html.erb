@@ -1,0 +1,30 @@
+<div class="card popup-info-card">
+  <div class="card-body">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <h5 class="card-title mb-0"><%= item.name %></h5>
+      </div>
+      <div class="col-auto">
+        <a href="#" class="message-icon"><i class="fa-solid fa-message"></i></a>
+      </div>
+    </div>
+    <% if item.image.present? %>
+      <div class="text-center mt-3 mb-3">
+        <%= image_tag item.image, class: "img-fluid popup-info-image" %>
+      </div>
+    <% end %>
+    <div class="card-text mb-0">
+      <%= item.status == 1 ? 'Found by' : 'Lost by' %> <%= item.user.email.split('@').first %><br>
+      <small class="text-muted"><%= item.date %></small>
+    </div>
+    <% if item.status == 0 %>
+      <div class="card-text mt-2">
+        <span class="offer">Offering <%= item.reward %> £ reward</span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
