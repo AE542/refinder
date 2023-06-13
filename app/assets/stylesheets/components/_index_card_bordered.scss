@@ -1,6 +1,7 @@
 .index-card-bordered {
   border-left: 1px solid #dee2e6;
   border-right: 1px solid #e9edf0;
+  background-color: $light-blue-refinder;
 
 }
 
@@ -28,4 +29,8 @@
 .card-header-top-menu {
   box-sizing: border-box;
   background-color: $light-gray;
+ }
+
+ .card-body {
+  background-color: $light-blue-refinder;
  }

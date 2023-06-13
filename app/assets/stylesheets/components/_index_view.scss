@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
-.index-view-card {
+.index-card-bordered {
   padding-top: 10px;
   background-color: #ffffff;
   border: 5px solid #eaeaea5d;
@@ -18,10 +18,13 @@
 
   @media (min-width: 600px) {
     &.col-md-6 {
-      width: 75%;
+      width: 90%;
     }
     &.col-md-4 {
     width: 33%;
+   }
+   &.col-md-3 {
+    width: 40%;
    }
   }
 
@@ -51,4 +54,19 @@
   border-radius: 10px;
   margin-right: 10px;
   padding-left: 0px;
+}
+
+.btn {
+  background-color: $navy;
+  color: $beige;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $navy;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: $beige;
+  color: $navy;
+  border-color: $navy;
 }
