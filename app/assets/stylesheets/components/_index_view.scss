@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 
-.index-view-card {
+.index-card-bordered {
   padding-top: 10px;
-  background-color: #ffffff;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #e9edf0;
+  background-color: $beige;
   border: 5px solid #eaeaea5d;
   border-radius: 10px;
   padding: 10px;
@@ -18,10 +20,13 @@
 
   @media (min-width: 600px) {
     &.col-md-6 {
-      width: 75%;
+      width: 90%;
     }
     &.col-md-4 {
     width: 33%;
+   }
+   &.col-md-3 {
+    width: 40%;
    }
   }
 
@@ -29,11 +34,11 @@
 
 }
 
-.index-view-card :hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  border: 1px solid darkgray;
-  z-index: 500;
-}
+// .index-card-bordered :hover {
+//   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+//   border: 1px solid darkgray;
+//   z-index: 500;
+// }
 
 .index-li {
   margin-bottom: 10px;
@@ -52,3 +57,51 @@
   margin-right: 10px;
   padding-left: 0px;
 }
+
+.btn {
+  background-color: $navy;
+  color: $beige;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $navy;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: $beige;
+  color: $navy;
+  border-color: $navy;
+}
+
+
+ .search-btn {
+  background-color: $navy;
+  color: $beige;
+  margin-left: 10px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $navy;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: $beige;
+  color: $navy;
+  border-color: $navy;
+}
+
+.row {
+  background-color: $light-blue-refinder;
+}
+
+.card {
+border-radius: 20px;
+
+}
+
+// .card :hover {
+//   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+//   border: 1px solid darkgray;
+//   border-radius: 10px;
+//   z-index: 500;
+// }
