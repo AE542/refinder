@@ -13,8 +13,5 @@ application.register("map", MapController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
-import ShowHideToggleFunctionalityController from "./show_hide_toggle_functionality_controller"
-application.register("show-hide-toggle-functionality", ShowHideToggleFunctionalityController)
-
 import ShowmapController from "./showmap_controller"
 application.register("showmap", ShowmapController)
