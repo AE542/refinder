@@ -1,17 +1,19 @@
-  <%# code for lost & found item reporting button  %>
+
+  <%# code for search bar  %>
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3 p-3">
       <%= form_with url: items_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Type a keyword"
+              placeholder: "Search for an Item"
           %>
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
 
+  <%# code for lost & found item reporting button  %>
   <div class="row mx-1 mb-3  flex-column align-items-center ">
     <div class="card-header-top-menu d-flex justify-content-center col-md-3 ">
       <div class="col-xs-3">
@@ -21,6 +23,31 @@
       </div>
     </div>
   </div>
+
+    <%# code for button which hides elements - not working  %>
+  <div class="row mx-1 mb-3  flex-column align-items-center ">
+    <div class="card-header-top-menu d-flex justify-content-center col-md-3 ">
+      <div class="col-xs-3">
+        <div class="text-center mx-3">
+          <button type="button" class="btn btn-primary" data-controller="hide-map"
+        data-action="visibility#hideTargets"> Hide Map </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <%# test button not working %>
+    <div data-controller="visibility">
+        <div class="row mx-1 mb-3  flex-column align-items-center ">
+        <div class="card-header-top-menu d-flex justify-content-center col-md-3 ">
+          <div class="col-xs-3">
+            <div class="text-center mx-3">
+              <button type="button" class="btn btn-danger"> Test button </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <%# code for mapbox map  %>
   <div class="row mb-5 flex-column align-items-center mapContainer">
