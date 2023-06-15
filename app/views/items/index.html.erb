@@ -5,9 +5,9 @@
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Type a keyword"
+              placeholder: "Type your query here"
           %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Search", name: "", class: "search-btn btn-primary" %>
       <% end %>
     </div>
   </div>
@@ -45,8 +45,8 @@
               </div>
             </div>
             <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
+              <div class="row-lost">
+                <div class="col-md-6 colour: $beige">
                   <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
                   <p><strong>Location:</strong> <%= item.location %></p>
                   <% if item.reward.present? %>

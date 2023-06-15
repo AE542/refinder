@@ -1,9 +1,11 @@
-<h1>My Listed Items</h1>
+<div class= custom-h1>
+  <h1>My Listed Items</h1>
+</div>
 
 <div class="row">
   <% @items.each do |item| %>
-    <div class="col-md-4">
-      <div class="card mt-3 shadow">
+    <div class="col-md-4 my-3 mx-3">
+      <div class="card mt-3 shadow p-3">
         <div class="card-body">
           <% if item.status == 0 %>
             <h2 class="card-title text-danger">Lost <%= item.name %></h2>
