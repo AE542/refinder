@@ -4,6 +4,7 @@
 <% end %>
 
 <div id="message-<%= message.id %>" class="message <%= message.user == current_user ? 'message-right' : 'message-left' %>">
-  <p><strong><%= message.user == current_user ? 'You' : message.user.email.split("@").first %>:</strong> <span class="timestamp"><%= format_timestamp(message.created_at) %></span></p>
+  <p><strong><%= message.user.email.split("@").first %>:</strong> <span class="timestamp"><%= format_timestamp(message.created_at) %></span></p>
+
   <p><%== message.body %></p>
 </div>
