@@ -27,6 +27,7 @@
           <div class="col-md-6">
             <p><strong>Date:</strong> <%= @item.date.strftime("%B %d, %Y") %></p>
             <p><strong>Location:</strong> <%= @item.location %></p>
+             <p><strong>user id:</strong> <%= @item.user_id %></p>
             <% if @item.reward.present? %>
               <p><strong>Reward:</strong> $<%= @item.reward %></p>
             <% end %>
@@ -52,33 +53,40 @@
       </div>
   </div>
 
-    <% @potential_matches.each do |item| %>
-        <div class="card index-card-bordered col-xs-3 mb-3 px-0">
-          <!-- Display Found  item -->
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="card-title card-title-bold text-found-colour mb-0">Found <%= item.name %></h5>
-            <div class="card-icons">
-              <a href="#" class="share-icon"><i class="fa-solid fa-share-nodes mx-1"></i></a>
-              <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2"></i></a>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
-                <p><strong>Location:</strong> <%= item.location %></p>
-                <% if item.reward.present? %>
-                  <p><strong>Reward:</strong> $<%= item.reward %></p>
-                <% end %>
-              </div>
-              <div class="col-md-6 text-end">
-                <% if item.image.attached? %>
-                  <%= image_tag item.image, class: "card-image img-fluid" %>
-                <% end %>
-              </div>
-            </div>
-          </div>
+<% @potential_matches.each do |item| %>
+  <div class="card index-card-bordered col-xs-3 mb-3 px-0">
+    <!-- Display Found item -->
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="card-title card-title-bold text-found-colour mb-0">Found <%= item.name %></h5>
+        <div class="card-icons">
+          <p><strong>user id:</strong> <%= item.user_id %></p>
+
+          <%= link_to chatroom_path(other_user_id: item.user.id), class: "message-icon" do %>
+            <i class="fa-solid fa-message mx-2"></i>
+          <% end %>
+
+
+
         </div>
-      <% end %>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
+          <p><strong>Location:</strong> <%= item.location %></p>
+          <% if item.reward.present? %>
+            <p><strong>Reward:</strong> $<%= item.reward %></p>
+          <% end %>
+        </div>
+        <div class="col-md-6 text-end">
+          <% if item.image.attached? %>
+            <%= image_tag item.image, class: "card-image img-fluid" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
   </div>
 </div>

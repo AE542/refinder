@@ -45,8 +45,10 @@ class ItemsController < ApplicationController
     }
     # Initialize @potential_matches
     @potential_matches = []
-    # Find potential matches within 1 km distance
-    @potential_matches = Item.near([@item.latitude, @item.longitude], 3, units: :mi).where(status: 1)
+    # Find potential matches within 3 km distance
+    @potential_matches = Item.near([@item.latitude, @item.longitude], 30000, units: :mi)
+                         .where.not(user_id: current_user.id)
+
 
     @markers = @potential_matches.geocoded.map do |item|
       {
