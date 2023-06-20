@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   get 'my_items', to: 'items#my_items', as: 'my_items'
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :chatrooms, only: [:show, :index] do
+    resources :messages, only: [:create], param: :chatroom_id
+  end
 end
