@@ -1,0 +1,56 @@
+//for carousel
+
+.carousel {
+//set width and height of page
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  // good to use border-box so we can control the size of the carousel we're working with
+}
+
+.viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: black;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.slide-container > div {
+  width: 100%;
+  height: 100%;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  background-size: cover;
+  animation-name: swipe;
+  animation-duration: 15s; /* depends on number of slides*/
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1); //how the animation progresses over 1 cycle
+  z-index: 1;
+  position: absolute;
+  background-color: $light-blue-refinder;
+}
+
+//add swipe effect if needed
+
+
+.slide-1 {
+  background-image: url(/refinder/app/assets/images/lostkeys.jpeg) no-repeat center center fixed;
+  animation-delay: 5s;
+}
+
+.slide-2 {
+  background-image: url(/refinder/app/assets/images/lostphone.jpg) no-repeat center center fixed;
+  animation-delay: 10s;
+}
+
+.slide-3 {
+  background-image: url(/refinder/app/assets/images/lostwallet.jpg) no-repeat center center fixed;
+  animation-delay: 15s;
+}
