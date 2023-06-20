@@ -3,4 +3,5 @@ class ChatsController < ApplicationController
 
   def show
     @chatroom = Chat
+  end
 end
