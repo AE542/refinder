@@ -1,0 +1,24 @@
+
+<h2>Chat with <%= @other_user&.email %> </h2>
+
+<div id="messages-container"
+     data-controller="chatroom-subscription"
+     data-chatroom-subscription-chatroom-id-value="<%=@chatroom.id%>"
+>
+  <div class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+
+
+<div id="new-message-form">
+  <%= simple_form_for([@chatroom, Message.new], html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" } }) do |form| %>
+    <%= form.input :body, as: :text, input_html: { rows: 3 }, label: false, placeholder: 'Type your message...' %>
+    <%= form.button :submit, 'Send', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+
+</div>
