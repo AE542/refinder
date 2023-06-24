@@ -1,5 +1,6 @@
 
-<h2>Chat with <%= @other_user&.email %> </h2>
+<h2>Chat with <%= @other_user&.email.split("@").first %> </h2>
+
 
 <div id="messages-container"
      data-controller="chatroom-subscription"
