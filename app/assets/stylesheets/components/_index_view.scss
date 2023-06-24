@@ -103,7 +103,7 @@ border-radius: 20px;
 //   justify-content: center;
 // }
 
-.message-icon {
+.msg-icon {
   color: $custom-orange;
   font-size: 20px;
 }
@@ -151,6 +151,12 @@ a {
   text-align: center;
 }
 
+.li {
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $custom-orange;
+}
+
 .card-title {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -160,13 +166,18 @@ label {
 }
 
 .fa-solid {
-  color: $custom-orange;
+  color: $custom-white;
 }
 
-.custom-icon {
-  font-family: "Font Awesome Solid";
-  font-weight: 900;
-  font-size: 16px;
+// .custom-icon {
+//   font-family: "Font Awesome Solid";
+//   font-weight: 900;
+//   font-size: 16px;
+//}
+
+.info-icon {
+  color: white;
+  line-height: 2;
 }
 
 a {
