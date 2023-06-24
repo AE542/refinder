@@ -54,7 +54,7 @@
               </div>
               <div class="card-body">
                 <div class="row-lost">
-                    <div class="col-md-6 text-end">
+                    <div class="col-md-6 text-end card-wrapper">
                       <% if item.image.attached? %>
                         <%= image_tag item.image, class: "card-image img-fluid" %>
                       <% end %>
@@ -75,4 +75,97 @@
             </div>
       <% end %>
     </div>
+  </div>
+  <%# code for lost & found item reporting button  %>
+  <div class="row mx-1 mb-3  flex-column align-items-center ">
+    <div class="card-header-top-menu d-flex justify-content-center col-md-3 ">
+      <div class="col-xs-3">
+        <div class="text-center mx-3">
+          <%= link_to "Report Item", new_item_path, class: "btn btn-info " %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# code for button which hides elements %>
+<div data-controller="hide-function">
+  <div class="row mx-1 mb-3  flex-column align-items-center ">
+    <div class="card-header-top-menu d-flex justify-content-center col-md-3 ">
+      <div class="col-xs-3">
+        <div class="text-center mx-3">
+          <button  data-action="click->hide-function#hide" data-hide-function-target="button" type="button" class="btn btn-primary"> Hide Map </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# code for mapbox map  %>
+  <div data-hide-function-target="element" class="row mb-5 flex-column align-items-center mapContainer">
+    <div style="width: 90%; height: 600px;" class="col-md-3"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+  <%# code for index feed view  %>
+  <div class="row mb-5 flex-column align-items-center listContainer m-4">
+    <% @items.each do |item| %>
+      <% if item.status == 0 %>
+          <div class="card index-card-bordered col-md-3 mb-3 px-0">
+            <!-- Display lost item -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="card-title card-title-bold text-lost-colour mb-0">Lost <%= item.name %></h5>
+              <div class="card-icons">
+                <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2"></i></a>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row-lost">
+                  <div class="col-md-6 text-end">
+                    <% if item.image.attached? %>
+                      <%= image_tag item.image, class: "card-image img-fluid" %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-6 colour: $beige">
+                    <p class= "p-width"><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
+                    <p class= "p-width"><strong>Location:</strong> <%= item.location %></p>
+                    <% if item.reward.present? %>
+                      <p class= "p-width"><strong>Reward:</strong> $<%= item.reward %></p>
+                    <% end %>
+                    <p class="info">
+                      <%= link_to "Info", item_path(item)%>
+                      <i class="fa-solid fa-circle-info"></i>
+                    </p>
+                  </div>
+              </div>
+            </div>
+          </div>
+      <% elsif item.status == 1 %>
+       <% if item.blur.nil? || item.blur == true %>
+          <div class="card index-card-bordered col-md-3 mb-3 px-0">
+            <!-- Display blurred found item -->
+            <div class="card-header d-flex justify-content-between align-items-start">
+              <h5 class="card-title card-title-bold text-found-colour">Found <%= item.name %></h5>
+              <div class="card-icons">
+              </div>
+            </div>
+            <p class="card-text mx-5"> Hidden to prevent fraud. Report lost item to view potential matches in "My Items" .</p>
+            <div class="card-body">
+             <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
+             <p class="blurred-text"><strong>Location:</strong> <%= item.location %></p>
+             </div>
+          </div>
+        <% else %>
+          <div class="card index-card-bordered col-md-3 mb-3 px-0">
+            <!-- Display found item -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h5 class="card-title text-success">Found <%= item.name %></h5>
+              <div class="card-icons">
+              </div>
+            </div>
+            <div class="card-body">
+              <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
+              <p><strong>Location:</strong> <%= item.location %></p>
+             </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
