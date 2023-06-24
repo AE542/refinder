@@ -74,6 +74,7 @@
   border-radius: 10px;
   border-style: solid;
   border-width: 2.5px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .row {
@@ -152,4 +153,22 @@ a {
 
 .card-title {
   font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.fa-solid {
+  color: $custom-orange;
+}
+
+.custom-icon {
+  font-family: "Font Awesome Solid";
+  font-weight: 900;
+  font-size: 16px;
+}
+
+a {
+  color: white;
 }
