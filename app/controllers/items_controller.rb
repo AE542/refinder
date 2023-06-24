@@ -2,11 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i[show edit update destroy]
   def index
     @items = policy_scope(Item).order(date: :asc).all
-    if params[:query].present?
-      sql_subquery = "name ILIKE :query OR location ILIKE :query"
-      @items = @items.where(sql_subquery, query: "%#{params[:query]}%")
-    end
-    @markers = @items.geocoded.map do |item|
+    @lost_marker_items = policy_scope(Item).order(date: :asc).where(status: 0)
+    @markers = @lost_marker_items.geocoded.map do |item|
       {
         lat: item.latitude,
         lng: item.longitude,
@@ -28,14 +25,11 @@ class ItemsController < ApplicationController
     authorize @item
 
     if @item.save
-      redirect_to root_path, notice: 'Item was successfully created.'
+      redirect_to item_path(@item), notice: 'Showing Possible matches.'
     else
       render :new
     end
   end
-
-
-
 
   def show
     authorize @item
