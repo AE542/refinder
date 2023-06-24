@@ -183,3 +183,11 @@ label {
 a {
   color: white;
 }
+
+.page-height-setter{
+  min-height: 100vh !important;
+}
+
+body{
+  min-height: 100vh;
+}
