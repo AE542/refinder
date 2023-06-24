@@ -37,6 +37,14 @@
   padding-right: 10px;
  }
 
+ .report-card-body {
+  //background-color: $custom-white;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+ }
  .card-header-top-menu {
   background-color: $light-blue-refinder;
  }
@@ -45,6 +53,10 @@
   background-color: $light-blue-refinder;
  }
 
+
+ .form-label {
+  font-family: 'Courier New', Courier, monospace;
+ }
  //h1 for my_items
 
  .custom-h1 {
