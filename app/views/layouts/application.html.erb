@@ -20,11 +20,6 @@
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
   <%= yield %>
-  <% if user_signed_in? %>
-    <div style="text-align: center;">
-      Signed in as: <%= current_user.email %> (User ID: <%= current_user.id %>)
-    </div>
-  <% end %>
   <%= render "shared/footer" %>
 </body>
 

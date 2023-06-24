@@ -74,6 +74,7 @@
   border-radius: 10px;
   border-style: solid;
   border-width: 2.5px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .row {
@@ -102,7 +103,7 @@ border-radius: 20px;
 //   justify-content: center;
 // }
 
-.message-icon {
+.msg-icon {
   color: $custom-orange;
   font-size: 20px;
 }
@@ -150,6 +151,35 @@ a {
   text-align: center;
 }
 
+.li {
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $custom-orange;
+}
+
 .card-title {
   font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.fa-solid {
+  color: $custom-white;
+}
+
+// .custom-icon {
+//   font-family: "Font Awesome Solid";
+//   font-weight: 900;
+//   font-size: 16px;
+//}
+
+.info-icon {
+  color: white;
+  line-height: 2;
+}
+
+a {
+  color: white;
 }

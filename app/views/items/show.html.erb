@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4 mb-3 show-page-text"> Potential Matches </h1>
+<h1 class="custom-h1 text-center mt-4 mb-3"> Potential Matches </h1>
 
 <%# display the map %>
 
@@ -22,13 +22,14 @@
       <% end %>
       <div class="card-icons">
         <% if current_user != @item.user %>
-          <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2"></i></a>
+          <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2" style="color: $custom-orange;
+  font-size: 20px"></i></a>
         <% end %>
       </div>
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 text-center">
           <p><strong>Date:</strong> <%= @item.date.strftime("%B %d, %Y") %></p>
           <p><strong>Location:</strong> <%= @item.location %></p>
           <p><strong>user id:</strong> <%= @item.user_id %></p>
@@ -36,7 +37,7 @@
             <p><strong>Reward:</strong> $<%= @item.reward %></p>
           <% end %>
         </div>
-        <div class="col-md-6 text-end">
+        <div class="col-md-6 text-center">
           <% if @item.image.attached? %>
             <%= image_tag @item.image, class: "card-image img-fluid" %>
           <% end %>
@@ -50,14 +51,14 @@
       <!-- Display Found item -->
    <div class="card-header d-flex justify-content-between align-items-center">
   <% if @item.status == 1 %>
-    <h5 class="card-title card-title-bold text-lost-colour mb-0">Lost <%= item.name %></h5>
+    <h5 class="card-title card-title-bold text-lost-colour m-3">Lost <%= item.name %></h5>
   <% else %>
-    <h5 class="card-title card-title-bold text-found-colour mb-0">Found <%= item.name %></h5>
+    <h5 class="card-title card-title-bold text-found-colour m-3">Found <%= item.name %></h5>
   <% end %>
   <div class="card-icons">
     <div class="text-right">
       <%= link_to chatroom_path(other_user_id: item.user.id), class: "message-icon" do %>
-        <i class="fa-solid fa-message mx-2"></i>
+        <i class="fa-solid fa-message" style="color: #d74b0f; font-size: 20px"></i>
       <% end %>
     </div>
   </div>
@@ -65,14 +66,14 @@
 
       <div class="card-body">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
             <p><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
             <p><strong>Location:</strong> <%= item.location %></p>
             <% if item.reward.present? %>
               <p><strong>Reward:</strong> $<%= item.reward %></p>
             <% end %>
           </div>
-          <div class="col-md-6 text-end">
+          <div class="col-md-6 text-center">
             <% if item.image.attached? %>
               <%= image_tag item.image, class: "card-image img-fluid" %>
             <% end %>

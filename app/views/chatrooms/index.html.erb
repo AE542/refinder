@@ -7,7 +7,7 @@
       <% other_user = User.find_by(email: other_user_email) %>
         <li class="list-group-item">
           <%= link_to chatroom_path(chatroom, other_user_id: other_user.id), class: "stretched-link" do %>
-            <h2 class="mb-1">
+            <h2 class="mb-1" style="color: #393E46;">
               <%= other_user.email.split("@").first %>
             </h2>
           <% end %>

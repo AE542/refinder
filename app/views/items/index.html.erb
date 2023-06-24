@@ -42,9 +42,9 @@
               <!-- Display lost item -->
               <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="card-title card-title-bold text-lost-colour mb-0">Lost <%= item.name %></h5>
-                <div class="card-icons">
-                  <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2"></i></a>
-                </div>
+                <%# <div class="card-icons">
+                  <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2 chat-icon"></i></a>
+                </div> %>
               </div>
               <div class="card-body">
                 <div class="row-lost">
@@ -61,7 +61,7 @@
                       <% end %>
                       <p class="info">
                         <%= link_to "Info", item_path(item)%>
-                        <i class="fa-solid fa-circle-info"></i>
+                        <i class="fa-solid fa-circle-info info-icon"></i>
                       </p>
                     </div>
                 </div>
