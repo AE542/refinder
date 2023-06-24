@@ -1,21 +1,19 @@
 <div class="sticky-bottom">
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-        <div class="footer-icon">
-          <%= link_to root_path do %>
-            <%= image_tag ("home2.png")%>
-          <% end %>
-        </div>
+    <div class="navbar footer navbar-expand-sm navbar-light navbar-lewagon icon-spacing">
 
-        <div class="footer-icon">
-          <%= link_to my_items_path do %>
-            <%= image_tag ("search.png")%>
+      <div class="custom-container">
+          <%= link_to root_path, class: "navbar-brand"  do %>
+            <i class="fa-solid fa-house fa-2xl"></i>
           <% end %>
-        </div>
 
-        <div class="footer-icon">
-          <%= link_to root_path do %>
-            <%= image_tag ("profile.png")%>
+        <%# <div class="footer-icon"> %>
+          <%# <%= link_to my_items_path do %>
+            <%# <%= image_tag ("search.png")%>
+          <%# <% end %>
+        <%# </div> %>
+
+          <%= link_to my_items_path, class: "navbar-brand" do %>
+            <i class="fa-solid fa-user fa-2xl"></i>
           <% end %>
-        </div>
     </div>
 </div>
