@@ -19,7 +19,9 @@
 <body>
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
-  <%= yield %>
+  <div class="page-height-setter">
+    <%= yield %>
+  </div>
   <%= render "shared/footer" %>
 </body>
 
