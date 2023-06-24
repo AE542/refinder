@@ -101,7 +101,7 @@
 }
 
 .row {
-  background-color: $light-blue-refinder;
+  // background-color: $light-blue-refinder;
 }
 
 .card {
@@ -139,7 +139,7 @@ border-radius: 20px;
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -151,6 +151,21 @@ a {
 .mapContainer {
   visibility: visible;
   transition: visibility 1s, opacity 0.5s linear;
+}
+
+.button-alignment-index {
+  display: flex;
+  position: relative;
+  top: 70px;
+  z-index: 10;
+}
+
+.index-page-map {
+  margin-top: -55px;
+}
+
+.custom-index-container-margin {
+  margin-top: 40px;
 }
 // .custom-message-icon-size {
 //   font-size: 15px;
