@@ -1,15 +1,18 @@
-<h1>My Chats</h1>
+<h1 class=custom-h1>My Chats</h1>
 
-<ul class="list-group">
-  <% @chatrooms.each do |chatroom| %>
-    <% other_user_email = chatroom.other_user_email(current_user) %>
-    <% other_user = User.find_by(email: other_user_email) %>
-      <li class="list-group-item">
-        <%= link_to chatroom_path(chatroom), class: "stretched-link" do %>
-          <h2 class="mb-1">
-            <%= other_user.email.split("@").first %>
-          </h2>
-        <% end %>
-      </li>
-  <% end %>
-</ul>
+
+<div class= "chats-list">
+  <ul class="list-group">
+    <% @chatrooms.each do |chatroom| %>
+      <% other_user_email = chatroom.other_user_email(current_user) %>
+      <% other_user = User.find_by(email: other_user_email) %>
+        <li class="list-group-item">
+          <%= link_to chatroom_path(chatroom), class: "stretched-link" do %>
+            <h2 class="mb-1">
+              <%= other_user.email.split("@").first %>
+            </h2>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+</div>
