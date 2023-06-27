@@ -4,11 +4,11 @@
   padding-top: 10px;
   border-left: 1px solid #dee2e6;
   border-right: 1px solid #e9edf0;
-  background-color: $beige;
+  background-color: $custom-white;
   border-radius: 10px;
   border-style: solid;
   border-width: 2.5px;
-  border-color: $navy;
+  border-color: $custom-orange;
   padding: 10px;
 
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -32,15 +32,9 @@
    }
   }
 
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 
 }
-
-// .index-card-bordered :hover {
-//   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-//   border: 1px solid darkgray;
-//   z-index: 500;
-// }
 
 .index-li {
   margin-bottom: 10px;
@@ -61,47 +55,30 @@
 }
 
 .btn {
-  background-color: $navy;
-  color: $beige;
+  background-color: $custom-orange;
+  color: $custom-white;
   border-radius: 10px;
   border-style: solid;
-  border-width: 2.5px;
-  border-color: $beige;
+  border-color: $custom-white;
   transition: background-color 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .btn:hover {
-  background-color: $beige;
-  color: $navy;
-  border-color: $navy;
-}
-
-
- .search-btn {
-  background-color: $navy;
-  color: $beige;
-  margin-left: 10px;
-  border-radius: 10px;
-  border-width: 2px;
-  border-color: $navy;
-  transition: background-color 0.3s ease;
-}
-
-.search-btn:hover {
-  background-color: $beige;
-  color: $navy;
-  border-color: $navy;
+  background-color: $custom-white;
+  color: $custom-orange;
+  border-color: $custom-orange;
 }
 
 .form-control {
   border-radius: 10px;
   border-style: solid;
   border-width: 2.5px;
-  border-color: $navy;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .row {
-  background-color: $light-blue-refinder;
+  // background-color: $light-blue-refinder;
 }
 
 .card {
@@ -109,21 +86,14 @@ border-radius: 20px;
 
 }
 
-// .card :hover {
-//   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-//   border: 1px solid darkgray;
-//   border-radius: 10px;
-//   z-index: 500;
-// }
-
 .info {
   // width: 100px;
   // height: 50px;
-  background-color: $navy;
-  color: $beige;
+  background-color: $custom-orange;
+  color: $custom-white;
   border-radius: 10px;
   border-width: 2px;
-  border-color: $navy;
+  border-color: white;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -133,13 +103,13 @@ border-radius: 20px;
 //   justify-content: center;
 // }
 
-.message-icon {
-  color: $blue-secondary;
+.msg-icon {
+  color: $custom-orange;
   font-size: 20px;
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -152,26 +122,72 @@ a {
   visibility: visible;
   transition: visibility 1s, opacity 0.5s linear;
 }
-// .custom-message-icon-size {
-//   font-size: 15px;
-// }
-// a :hover {
-//   background-color: $blue-secondary;
-//   color: $navy;
-//   border-color: $navy;
-// }
 
-// .fa-circle-info{
-//   color: $blue-secondary;
-// }
+.button-alignment-index {
+  display: flex;
+  position: relative;
+  top: 70px;
+  z-index: 10;
+}
 
-// .fa-circle-info :hover {
-//   color: $light-blue-refinder
-// }
+.index-page-map {
+  margin-top: -55px;
+}
 
-.mapboxgl-canvas {
-  border-radius: 20px;
-  border-style: solid;
-  border-width: 2.5px;
-  border-color: $navy;
+.custom-index-container-margin {
+  margin-top: 80px;
+}
+
+.list-group-item {
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $custom-orange;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.li {
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $custom-orange;
+}
+
+.card-title {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.fa-solid {
+  color: $light-blue-refinder;
+}
+
+// .custom-icon {
+//   font-family: "Font Awesome Solid";
+//   font-weight: 900;
+//   font-size: 16px;
+//}
+
+.info-icon {
+  color: white;
+  line-height: 2;
+}
+
+a {
+  color: white;
+}
+
+.page-height-setter{
+  min-height: 100vh !important;
+}
+
+body{
+  min-height: 100vh;
 }

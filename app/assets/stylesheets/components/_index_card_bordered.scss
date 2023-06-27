@@ -12,10 +12,14 @@
   color: rgb(223, 22, 0)
 }
 
+.card-image {
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: $custom-orange;
+}
 
 .card-header {
- //box-sizing: border-box;
- background-color: $beige;
+ background-color: $custom-white;
 }
 
 
@@ -25,7 +29,7 @@
  }
 
  .card-body {
-  background-color: $beige;
+  background-color: $custom-white;
   margin-left: 10px;
   margin-right: 10px;
   padding: 10px;
@@ -33,6 +37,14 @@
   padding-right: 10px;
  }
 
+ .report-card-body {
+  //background-color: $custom-white;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+ }
  .card-header-top-menu {
   background-color: $light-blue-refinder;
  }
@@ -41,19 +53,10 @@
   background-color: $light-blue-refinder;
  }
 
- // search bar
 
- .form-control::placeholder {
- color: gray;
+ .form-label {
+  font-family: 'Courier New', Courier, monospace;
  }
-
- .form-control-search-bar {
-  border-radius: 5px;
-  border-color: $navy;
-  border-width: 2px;
- }
-
-
  //h1 for my_items
 
  .custom-h1 {
@@ -62,4 +65,8 @@
   font-family: 'Courier New', Courier, monospace;
   color: white;
   text-underline-position: below;
+ }
+
+ i {
+  color: #393E46;
  }
