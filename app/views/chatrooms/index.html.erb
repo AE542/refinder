@@ -1,4 +1,4 @@
-<h1 class=custom-h1>My Chats</h1>
+<h1 class=custom-h1>Active Chats</h1>
 
 <div class= "chats-list">
   <ul class="list-group">
@@ -8,7 +8,7 @@
         <li class="list-group-item">
           <%= link_to chatroom_path(chatroom, other_user_id: other_user.id), class: "stretched-link" do %>
             <h2 class="mb-1" style="color: #393E46;">
-              <%= other_user.email.split("@").first %>
+              <%= other_user.email.split("@").first.capitalize %>
             </h2>
           <% end %>
         </li>
