@@ -1,25 +1,29 @@
 <div class="card popup-info-card">
-  <div class="card-body">
+  <div class="card-body-marker">
     <div class="row align-items-center">
-      <div class="col-auto">
-        <h5 class="card-title mb-0"><%= item.name %></h5>
-      </div>
-      <div class="col-auto">
-        <a href="#" class="message-icon"><i class="fa-solid fa-message"></i></a>
+      <div class="d-flex justify-content-center">
+        <h5 class="card-title mb-0 card-title-bold"><%= item.name.capitalize %></h5>
       </div>
     </div>
+
     <% if item.image.present? %>
-      <div class="text-center mt-3 mb-3">
-        <%= image_tag item.image, class: "img-fluid popup-info-image" %>
+      <div class="text-center mt-0 mb-0">
+        <%= image_tag item.image, class: "img-fluid popup-info-image markers-image" %>
       </div>
     <% end %>
+
     <div class="card-text mb-0">
-      <%= item.status == 1 ? 'Found by' : 'Lost by' %> <%= item.user.email.split('@').first %><br>
-      <small class="text-muted"><%= item.date %></small>
+      <%# <%= item.status == 1 ? 'Found by' : 'Lost by' <%= item.user.email.split('@').first  %> <%#---original code %>
+      <span> <strong>Lost by: </strong><%= item.user.email.split('@').first.capitalize %></span>
     </div>
+
+    <div class="card-text mb-0">
+      <span><strong>Date: </strong><%= item.date %></span>
+    </div>
+
     <% if item.status == 0 %>
-      <div class="card-text mt-2">
-        <span class="offer">Offering <%= item.reward %> £ reward</span>
+      <div class="card-text mb-0">
+        <span class="offer"> <strong>Reward:</strong> £<%= item.reward %></span>
       </div>
     <% end %>
   </div>

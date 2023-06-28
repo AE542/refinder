@@ -1,0 +1,21 @@
+.mapboxgl-popup-content{
+  padding: 0 !important;
+  border-radius: 20px !important;
+  border-radius: 22px !important;
+  border-style: solid !important;
+  border-width: 2.5px !important;
+  border-color: $custom-orange !important;
+}
+
+.markers-image{
+  border-radius: 5%;
+}
+
+.card-body-marker {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Courier New', Courier, monospace;
+ }
