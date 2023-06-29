@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 body, html {
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
 
@@ -11,7 +11,7 @@ body, html {
   background-image: url("lostwallet.jpg");
 
   /* Full height */
-  height: 100%;
+  height: 100vh;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -22,10 +22,42 @@ body, html {
 }
 
 .refinder-minimal-logo {
-  height: 50%;
-  width: 50%;
+  height: 75%;
+  width: 75%;
 }
 
 .main-page-info {
   justify-content: center;
+}
+
+// .navbar {
+//   display: none;
+// }
+
+.info-container  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+p {
+  padding-top: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  font-size: medium;
+  font-weight: 200;
+}
+
+.to-main-page {
+  height: 80px;
+  width: 160px;
+  font-size: large;
+  background-color: $custom-orange;
+  color: $custom-white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: $custom-white;
+  transition: background-color 0.3s ease;
+  font-family: 'Courier New', Courier, monospace;
 }

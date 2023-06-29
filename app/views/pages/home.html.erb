@@ -6,14 +6,21 @@
 
 <body>
 
-  <div class="bg"> </div>
+  <div class="bg">
+        <div class="container">
+          <div class="row">
+            <div class= "col-xs-12 text-center">
+              <div class="info-container">
+                <div class= "info-div">
+                  <img class= "refinder-minimal-logo" src="refinderMinimal.png" alt="refinderLogo">
+                  <p>Refinder connects you with your lost items in your area. With over 5000 returned items to date, what's lost can be found!</p>
+                    <%= link_to "Find your Item!", items_path, class: "btn btn-info " %>
 
-
-          <img class= "refinder-minimal-logo" src="refinderMinimal.png" alt="refinderLogo">
-          <p>Refinder connects you with your lost items in your area. With over 5000 returned items to date, what's lost can be found!</p>
-          <button class= "to-main-page">Find your Items</button>
-
-
-
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
 </body>
 </html>
