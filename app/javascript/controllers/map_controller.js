@@ -41,8 +41,8 @@ export default class extends Controller {
       // Default to Aldgate London as the map location in case browser geolocation API access is denied
     #setDefaultMapBounds() {
       const aldgateBounds = new mapboxgl.LngLatBounds()
-        .extend([-0.07583, 51.51376])
-        .extend([-0.05986, 51.51859]);
+      .extend([-0.07313, 51.53122])
+      .extend([-0.07184, 51.53205]);
 
       this.map.fitBounds(aldgateBounds, {
         padding: 70,
