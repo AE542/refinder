@@ -59,3 +59,9 @@
     text-align: left;
   }
 }
+
+.button-messages-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the spacing between the buttons as needed */
+}
