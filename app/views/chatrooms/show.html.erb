@@ -14,12 +14,15 @@
 
 
 
-<div id="new-message-form">
-  <%= simple_form_for([@chatroom, Message.new], html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" } }) do |form| %>
-    <%= form.input :body, as: :text, input_html: { rows: 3 }, label: false, placeholder: 'Type your message...' %>
-    <%= form.button :submit, 'Send', class: 'btn btn-primary' %>
-  <% end %>
-</div>
-
+  <div id="new-message-form">
+    <%= simple_form_for([@chatroom, Message.new], html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" } }) do |form| %>
+      <%= form.input :body, as: :text, input_html: { rows: 3 }, label: false, placeholder: 'Type your message...' %>
+        <div class="d-flex justify-content-between">
+          <%= form.button :submit, 'Send Message', class: 'btn btn-primary' %>
+          <%= link_to "Item Reunited", root_path, class: 'btn btn-primary' %>
+        </div>
+    <% end %>
+    <%# <%= link_to "End Chat", root_path, class: 'btn btn-primary' %>
+  </div>
 
 </div>
