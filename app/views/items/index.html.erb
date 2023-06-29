@@ -40,7 +40,7 @@
         <% if item.status == 0 %>
             <div class="card index-card-bordered col-md-3 mb-3 px-0">
               <!-- Display lost item -->
-              <div class="card-header d-flex justify-content-between align-items-center">
+              <div class="card-header d-flex justify-content-between align-items-center" style="border-color: #EEEEEE;">
                 <h5 class="card-title card-title-bold text-lost-colour mb-0">Lost <%= item.name %></h5>
                 <%# <div class="card-icons">
                   <a href="#" class="message-icon"><i class="fa-solid fa-message mx-2 chat-icon"></i></a>
@@ -53,7 +53,7 @@
                         <%= image_tag item.image, class: "card-image img-fluid" %>
                       <% end %>
                     </div>
-                    <div class="col-md-6 colour: $beige">
+                    <div class="mt-3 col-md-6 colour: $beige">
                       <p class= "p-width"><strong>Date:</strong> <%= item.date.strftime("%B %d, %Y") %></p>
                       <p class= "p-width"><strong>Location:</strong> <%= item.location %></p>
                       <% if item.reward.present? %>
@@ -71,7 +71,7 @@
         <% if item.blur.nil? || item.blur == true %>
             <div class="card index-card-bordered col-md-3 mb-3 px-0">
               <!-- Display blurred found item -->
-              <div class="card-header d-flex justify-content-between align-items-start">
+              <div class="card-header d-flex justify-content-between align-items-start" style="border-color: #EEEEEE;">
                 <h5 class="card-title card-title-bold text-found-colour">Found <%= item.name %></h5>
                 <div class="card-icons">
                 </div>
