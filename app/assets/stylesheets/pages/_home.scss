@@ -1,67 +1,112 @@
 // Specific CSS for your home-page
 
-body, html {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+// body, html {
+//   height: 100vh;
+//   margin: 0;
 
-}
-
-.bg {
-  background-image: url("lostwallet.jpg");
-
-  /* Full height */
-  height: 100vh;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  //height: 100vh;
-}
-
-.refinder-minimal-logo {
-  height: 75%;
-  width: 75%;
-}
-
-.main-page-info {
-  justify-content: center;
-}
-
-// .navbar {
-//   display: none;
 // }
 
-.info-container  {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+// .bg {
+//   background-image: url("landing.png");
 
-p {
-  padding-top: 15px;
+//   /* Full height */
+//   height: 100%;
+
+//   /* Center and scale the image nicely */
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+
+//   //height: 100vh;
+// }
+
+// .refinder-minimal-logo {
+//   height: 75%;
+//   width: 75%;
+// }
+
+// .main-page-info {
+//   justify-content: center;
+// }
+
+// // .navbar {
+// //   display: none;
+// // }
+
+// .info-container  {
+//   display: flexbox;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// p {
+//   padding-top: 15px;
+//   font-family: 'Courier New', Courier, monospace;
+//   color: white;
+//   font-size: medium;
+//   font-weight: 200;
+// }
+
+// .to-main-page {
+//   height: 80px;
+//   width: 160px;
+//   font-size: large;
+//   background-color: $custom-orange;
+//   color: $custom-white;
+//   border-radius: 10px;
+//   border-style: solid;
+//   border-color: $custom-white;
+//   transition: background-color 0.3s ease;
+//   font-family: 'Courier New', Courier, monospace;
+// }
+
+// .img {
+//   padding-bottom: 20px;
+// }
+
+// .info-div {
+//   height: 100vh;
+// }
+
+// body {
+//   font-family: Arial, sans-serif;
+//   margin: 0;
+//   padding: 0;
+//   background-color: white;
+// }
+// .main-container {
+//   max-width: 960px;
+//   margin: 0 auto;
+//   padding: 20px;
+//   text-align: center;
+// }
+// .image-container {
+//   margin-top: 20px;
+// }
+// .responsive-image {
+//   max-width: 100%;
+//   height: auto;
+//   border-radius: 5%;
+// }
+// .btn-primary {
+//   margin-top: 20px;
+//   background-color: $custom-orange;
+//   color: $custom-white;
+//   border-radius: 10px;
+//   border-style: solid;
+//   border-color: $custom-white;
+//   transition: background-color 0.3s ease;
+//   font-family: 'Courier New', Courier, monospace;
+// }
+
+
+
+.custom-header {
+  text-align: center;
+  margin-top: 10px;
   font-family: 'Courier New', Courier, monospace;
-  color: white;
-  font-size: medium;
-  font-weight: 200;
-}
-
-.to-main-page {
-  height: 80px;
-  width: 160px;
-  font-size: large;
-  background-color: $custom-orange;
-  color: $custom-white;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: $custom-white;
-  transition: background-color 0.3s ease;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.img {
-  padding-bottom: 20px;
-}
+  font-weight: 400;
+  color: $light-blue-refinder;
+  text-underline-position: below;
+ }

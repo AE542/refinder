@@ -2,25 +2,62 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+    .main-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .image-container {
+      margin-top: 20px;
+      padding-bottom: 10px;
+    }
+    .responsive-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5%;
+    }
+    .button {
+      margin-top: 20px;
+    }
+
+    .text-center {
+        padding-top: 10px; /* Adjust the value as per your preference */
+    }
+
+     .btn-primary {
+        margin-top: 20px;
+        background-color: $custom-orange;
+        color: $custom-white;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: $custom-white;
+        transition: background-color 0.3s ease;
+        font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+
 </head>
+
 
 <body>
 
-  <div class="bg">
-        <div class="container">
-          <div class="row">
-            <div class= "col-xs-12 text-center">
-              <div class="info-container">
-                <div class= "info-div">
-                  <img class= "refinder-minimal-logo" src="refinderMinimal.png" alt="refinderLogo">
-                  <p>Refinder connects you with your lost items in your area. With over 5000 returned items to date, what's lost can be found!</p>
-                    <%= link_to "Find your Item!", items_path, class: "to-main-page" %>
+<div class= "main-container"></div>
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<h1 class="custom-header">Refinder</h1>
+    <div class="image-container mb-2  ">
+      <img src="<%= asset_path('landing.png') %>" alt="Image" class="responsive-image">
     </div>
+    <div class="text-center mb-3">
+            <%= link_to "Find your lost item!", items_path, class: "btn btn-primary mt-5" %>
+   </div>
 </body>
 </html>
