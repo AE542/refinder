@@ -1,5 +1,7 @@
 <div class= custom-h1>
   <h1>My Listed Items</h1>
+  <%# <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
+  <%= link_to "Log out", destroy_user_session_path, class: 'btn btn-primary', data: {turbo_method: :delete} %>
 </div>
 
 <%# <div class="row"> %>
