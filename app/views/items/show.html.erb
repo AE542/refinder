@@ -32,7 +32,6 @@
         <div class="col-md-6 text-center">
           <p><strong>Date:</strong> <%= @item.date.strftime("%B %d, %Y") %></p>
           <p><strong>Location:</strong> <%= @item.location %></p>
-          <p><strong>user id:</strong> <%= @item.user_id %></p>
           <% if @item.reward.present? %>
             <p><strong>Reward:</strong> $<%= @item.reward %></p>
           <% end %>
